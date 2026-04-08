@@ -76,13 +76,19 @@ Benchmarks for download cache hit performance and model loading are included.
 
 ## Benchmarks
 
-The benchmarks use tests from MLX Swift LM and can be run from this package in Xcode.
-
-These results were observed on an M3 MacBook Pro.
-
-| Benchmark | Swift HF API median | Swift Hugging Face median | Swift HF API Performance |
+| | Swift Hugging Face | Swift HF API | |
 | --- | ---: | ---: | --- |
-| Download cache hit | 0.6 ms | 144.0 ms | 240.00x faster |
-| LLM load | 77.9 ms | 317.0 ms | 4.07x faster |
-| VLM load | 198.9 ms | 408.2 ms | 2.05x faster |
-| Embedding load | 90.5 ms | 262.8 ms | 2.90x faster |
+| Download cache hit | 150.3 ms | 0.6 ms | 250.5x faster |
+| LLM load | 203.6 ms | 48.5 ms | 4.2x faster |
+| VLM load | 300.9 ms | 145.1 ms | 2.1x faster |
+| Embedding load | 221.9 ms | 65.9 ms | 3.4x faster |
+
+These results were observed on an M3 MacBook Pro using Swift HF API [`0.2.2`](https://github.com/DePasqualeOrg/swift-hf-api/releases/tag/0.2.2), Swift Hugging Face [`0.9.0`](https://github.com/huggingface/swift-huggingface/releases/tag/0.9.0), and MLX Swift LM `8c9dd63`.
+
+### Running benchmarks
+
+The benchmarks use tests from MLX Swift LM and can be run from this package in Xcode or from the command line with `xcodebuild`:
+
+```bash
+xcodebuild test -scheme swift-hf-api-mlx-Package -configuration Release -destination 'platform=macOS,arch=arm64' -only-testing:Benchmarks
+```
