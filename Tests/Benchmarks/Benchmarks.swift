@@ -39,7 +39,7 @@ struct Benchmarks {
     }
 
     @Test func embeddingConvenience() async throws {
-        let config = EmbedderRegistry.bge_micro
+        let config = EmbedderRegistry.minilm_l6_4bit
         let loader = NoOpTokenizerLoader()
 
         // Free function loadModelContainer (default HubClient)

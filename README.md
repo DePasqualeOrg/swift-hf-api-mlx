@@ -1,6 +1,8 @@
 # Swift HF API MLX
 
-This package allows [Swift HF API](https://github.com/DePasqualeOrg/swift-hf-api) to seamlessly integrate with [MLX Swift LM](https://github.com/ml-explore/mlx-swift-lm) by providing protocol conformance and convenience overloads.
+This package allows [Swift HF API](https://github.com/DePasqualeOrg/swift-hf-api) to seamlessly integrate with [MLX Swift LM](https://github.com/DePasqualeOrg/mlx-swift-lm) by providing protocol conformance and convenience overloads.
+
+This package depends on [DePasqualeOrg/mlx-swift-lm](https://github.com/DePasqualeOrg/mlx-swift-lm), an independently maintained fork of ml-explore/mlx-swift-lm. Because SwiftPM resolves each package identity to a single URL, consumers must also use the fork's URL for `mlx-swift-lm` (and `DePasqualeOrg/mlx-swift`) rather than the ml-explore URLs.
 
 Refer to the [Benchmarks](#Benchmarks) section to compare the performance of Swift HF API and Swift Hugging Face.
 
@@ -14,7 +16,7 @@ It provides two modules:
 Add this package alongside MLX Swift LM in your `Package.swift`:
 
 ```swift
-.package(url: "https://github.com/DePasqualeOrg/swift-hf-api-mlx/", from: "0.1.0"),
+.package(url: "https://github.com/DePasqualeOrg/swift-hf-api-mlx/", branch: "main"),
 ```
 
 And add the modules you need to your target's dependencies:

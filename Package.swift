@@ -7,16 +7,17 @@ let package = Package(
     platforms: [
         .macOS(.v14),
         .iOS(.v17),
-        .tvOS(.v17),
-        .visionOS(.v1),
     ],
     products: [
         .library(name: "MLXLMHFAPI", targets: ["MLXLMHFAPI"]),
         .library(name: "MLXEmbeddersHFAPI", targets: ["MLXEmbeddersHFAPI"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/ml-explore/mlx-swift-lm.git", from: "3.31.3"),
-        .package(url: "https://github.com/DePasqualeOrg/swift-hf-api", from: "0.2.2"),
+        // TODO: Pin to a tagged release once the fork publishes one. A branch dependency
+        // blocks versioned consumers, so no new version tags of this package until then.
+        .package(url: "https://github.com/DePasqualeOrg/mlx-swift-lm.git", branch: "main"),
+        // swift-hf-api 0.4.0 renames HubClient to HFClient; stay on 0.3.x until the migration.
+        .package(url: "https://github.com/DePasqualeOrg/swift-hf-api.git", .upToNextMinor(from: "0.3.2")),
     ],
     targets: [
         .target(
