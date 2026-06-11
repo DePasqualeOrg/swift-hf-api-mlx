@@ -10,7 +10,7 @@ extension ModelFactory {
 
     /// Load a model using the default Hugging Face Hub client.
     public func load(
-        from hub: HubClient = .default,
+        from hub: HFClient = .default,
         using tokenizerLoader: any TokenizerLoader,
         configuration: MLXLMCommon.ModelConfiguration,
         useLatest: Bool = false,
@@ -27,7 +27,7 @@ extension ModelFactory {
 
     /// Load a model container using the default Hugging Face Hub client.
     public func loadContainer(
-        from hub: HubClient = .default,
+        from hub: HFClient = .default,
         using tokenizerLoader: any TokenizerLoader,
         configuration: MLXLMCommon.ModelConfiguration,
         useLatest: Bool = false,
@@ -47,7 +47,7 @@ extension ModelFactory {
 
 /// Load a model using the default Hugging Face Hub client.
 public func loadModel(
-    from hub: HubClient = .default,
+    from hub: HFClient = .default,
     using tokenizerLoader: any TokenizerLoader,
     configuration: MLXLMCommon.ModelConfiguration,
     useLatest: Bool = false,
@@ -64,7 +64,7 @@ public func loadModel(
 
 /// Load a model container using the default Hugging Face Hub client.
 public func loadModelContainer(
-    from hub: HubClient = .default,
+    from hub: HFClient = .default,
     using tokenizerLoader: any TokenizerLoader,
     configuration: MLXLMCommon.ModelConfiguration,
     useLatest: Bool = false,
@@ -81,7 +81,7 @@ public func loadModelContainer(
 
 /// Load a model by ID using the default Hugging Face Hub client.
 public func loadModel(
-    from hub: HubClient = .default,
+    from hub: HFClient = .default,
     using tokenizerLoader: any TokenizerLoader,
     id: String,
     revision: String = "main",
@@ -100,7 +100,7 @@ public func loadModel(
 
 /// Load a model container by ID using the default Hugging Face Hub client.
 public func loadModelContainer(
-    from hub: HubClient = .default,
+    from hub: HFClient = .default,
     using tokenizerLoader: any TokenizerLoader,
     id: String,
     revision: String = "main",
@@ -123,7 +123,7 @@ extension ModelAdapterFactory {
 
     /// Load an adapter using the default Hugging Face Hub client.
     public func load(
-        from hub: HubClient = .default,
+        from hub: HFClient = .default,
         configuration: MLXLMCommon.ModelConfiguration,
         useLatest: Bool = false,
         progressHandler: @Sendable @escaping (Progress) -> Void = { _ in }

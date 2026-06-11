@@ -16,8 +16,9 @@ let package = Package(
         // TODO: Pin to a tagged release once the fork publishes one. A branch dependency
         // blocks versioned consumers, so no new version tags of this package until then.
         .package(url: "https://github.com/DePasqualeOrg/mlx-swift-lm.git", branch: "main"),
-        // swift-hf-api 0.4.0 renames HubClient to HFClient; stay on 0.3.x until the migration.
-        .package(url: "https://github.com/DePasqualeOrg/swift-hf-api.git", .upToNextMinor(from: "0.3.2")),
+        // 0.4.1 is the floor: its artifactbundle localizes non-FFI Rust globals, fixing
+        // duplicate-symbol link failures alongside other Rust-backed packages.
+        .package(url: "https://github.com/DePasqualeOrg/swift-hf-api.git", .upToNextMinor(from: "0.4.1")),
     ],
     targets: [
         .target(

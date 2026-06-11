@@ -12,7 +12,7 @@ extension EmbedderModelFactory {
 
     /// Load an embedding model using the default Hugging Face Hub client.
     public func load(
-        from hub: HubClient = .default,
+        from hub: HFClient = .default,
         using tokenizerLoader: any TokenizerLoader,
         configuration: ModelConfiguration,
         useLatest: Bool = false,
@@ -29,7 +29,7 @@ extension EmbedderModelFactory {
 
     /// Load an embedding model container using the default Hugging Face Hub client.
     public func loadContainer(
-        from hub: HubClient = .default,
+        from hub: HFClient = .default,
         using tokenizerLoader: any TokenizerLoader,
         configuration: ModelConfiguration,
         useLatest: Bool = false,
@@ -49,7 +49,7 @@ extension EmbedderModelFactory {
 
 /// Load an embedding model using the default Hugging Face Hub client.
 public func loadModel(
-    from hub: HubClient = .default,
+    from hub: HFClient = .default,
     using tokenizerLoader: any TokenizerLoader,
     configuration: ModelConfiguration,
     useLatest: Bool = false,
@@ -66,7 +66,7 @@ public func loadModel(
 
 /// Load an embedding model container using the default Hugging Face Hub client.
 public func loadModelContainer(
-    from hub: HubClient = .default,
+    from hub: HFClient = .default,
     using tokenizerLoader: any TokenizerLoader,
     configuration: ModelConfiguration,
     useLatest: Bool = false,

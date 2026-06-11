@@ -29,14 +29,14 @@ And add the modules you need to your target's dependencies:
 
 ## Usage
 
-`MLXLMHFAPI` provides convenience overloads with `HubClient.default` as the default downloader, so you can omit the `from:` parameter:
+`MLXLMHFAPI` provides convenience overloads with `HFClient.default` as the default downloader, so you can omit the `from:` parameter:
 
 ```swift
 import MLXLLM
 import MLXLMHFAPI
 import MLXLMTokenizers
 
-// HubClient.default is used automatically
+// HFClient.default is used automatically
 let model = try await loadModel(
     using: TokenizersLoader(),
     id: "mlx-community/Qwen3-4B-4bit"
@@ -50,7 +50,7 @@ import MLXLLM
 import MLXLMHFAPI
 import MLXLMTokenizers
 
-let hub = HubClient(token: "hf_...")
+let hub = try HFClient(auth: .token("hf_..."))
 let container = try await loadModelContainer(
     from: hub,
     using: TokenizersLoader(),
@@ -58,11 +58,11 @@ let container = try await loadModelContainer(
 )
 ```
 
-You can also pass `HubClient.default` explicitly to the core API:
+You can also pass `HFClient.default` explicitly to the core API:
 
 ```swift
 let container = try await loadModelContainer(
-    from: HubClient.default,
+    from: HFClient.default,
     using: TokenizersLoader(),
     id: "mlx-community/Qwen3-4B-4bit"
 )
@@ -70,7 +70,7 @@ let container = try await loadModelContainer(
 
 ## Re-exports
 
-Both modules re-export `HFAPI`, so you get access to `HubClient` and other types without an additional import.
+Both modules re-export `HFAPI`, so you get access to `HFClient` and other types without an additional import.
 
 ## Testing
 
